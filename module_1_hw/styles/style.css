@@ -1,0 +1,7 @@
+span.empty {
+  color:red;
+}
+
+input.empty {
+  border-color:red;
+}
