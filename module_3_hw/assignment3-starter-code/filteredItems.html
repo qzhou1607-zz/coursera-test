@@ -1,0 +1,12 @@
+<div class="found-items">
+  <ul>
+    <li ng-repeat="item in menu.items">
+      <div>{{item.name}} ({{item.short_name}})</div>
+      <div>{{item.description}}</div>
+      <button ng-click="menu.onRemove({index:$index})" class="btn btn-primary">Don't want this one!</button>
+    </li>
+  </ul>
+  <div class="error-message" ng-if="menu.notFound()">
+    Not Found!
+  </div>
+</div>
