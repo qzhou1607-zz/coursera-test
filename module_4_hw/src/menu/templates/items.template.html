@@ -1,0 +1,11 @@
+<div class="row">
+  <a ui-sref="home" class="btn btn-default">Home</a> >
+  <a ui-sref="categories" class="btn btn-default">List of categories</a> >
+  <btn class="btn btn-primary">{{itemCtrl.category.name}} ({{itemCtrl.category.short_name}})</btn>
+</div>
+<div class="row">
+  {{itemCtrl.category.special_instructions}}
+</div>
+<div class="row">
+  <item-list items="itemCtrl.items"></item-list>
+</div>

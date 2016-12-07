@@ -1,0 +1,12 @@
+.row {
+  margin:10px 0;
+}
+
+ul {
+  padding-left:0;
+}
+
+li[ui-sref]:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}

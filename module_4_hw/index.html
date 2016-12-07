@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="MenuApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <ui-view></ui-view>
+    </div>
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- module -->
+    <script src="src/menu/menuapp.module.js"></script>
+
+    <!-- Routes -->
+    <script src="routes.js"></script>
+
+    <!-- ‘MenuApp’ module artifacts -->
+    <script src="src/menu/categorylist.component.js"></script>
+    <script src="src/menu/category.controller.js"></script>
+    <script src="src/menu/itemlist.component.js"></script>
+    <script src="src/menu/item.controller.js"></script>
+    <script src="src/menu/menudata.service.js"></script>
+
+  </body>
+</html>
