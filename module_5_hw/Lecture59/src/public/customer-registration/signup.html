@@ -1,0 +1,46 @@
+<div class="container">
+  <fieldset id="signup-form" class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
+    <form name="signUpForm" novalidate>
+      <input type="text" name="firstname" value="" placeholder="First Name" class="form-control"
+        ng-model="regCtrl.user.firstname"
+        required>
+      <span ng-if="(signUpForm.firstname.$error.required) && (signUpForm.firstname.$touched)">First name is required.</span>
+      <br>
+
+      <input type="text" name="lastname" value="" placeholder="Last Name" class="form-control"
+        ng-model="regCtrl.user.lastname"
+        required>
+      <span ng-if="(signUpForm.lastname.$error.required) && (signUpForm.lastname.$touched)">Last name is required.</span>
+      <br>
+
+      <input type="email" name="email" value="" placeholder="Email" class="form-control"
+        ng-model="regCtrl.user.email"
+        required>
+      <span ng-if="(signUpForm.email.$invalid) && (signUpForm.email.$touched)">
+        Must be a valid email address: handle@domain format.
+      </span>
+      <br>
+
+      <input type="text" name="phone" value="" placeholder="Phone ###-###-####" class="form-control"
+        ng-model="regCtrl.user.phone"
+        pattern="(\d{3})-(\d{3})-(\d{4})"
+        required>
+      <span ng-if="(signUpForm.phone.$invalid) && (signUpForm.phone.$touched)">
+        Phone must be in the format ###-###-####.
+      </span>
+      <br>
+
+      <input type="text" name="fav-dish" value="" class="form-control" placeholder="Favorite Dish Number"
+      ng-model="regCtrl.user.favDish">
+      <span ng-if="regCtrl.notExist">No such menu number exists.</span>
+
+      <br>
+      <button type="button" name="button" class="btn btn-default"
+      ng-disabled="signUpForm.$invalid"
+      ng-click="regCtrl.submit()">
+        <b>Submit</b>
+      </button>
+    </form>
+    <h3 ng-if="regCtrl.complete">The information has been saved!</h3>
+  </fieldset>
+</div>

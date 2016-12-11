@@ -1,0 +1,11 @@
+<div class="container">
+  <ul ng-if="!userInfoCtrl.userUndefined">
+    <li>First Name: {{userInfoCtrl.firstname}}</li>
+    <li>Last Name: {{userInfoCtrl.lastname}}</li>
+    <li>Phone: {{userInfoCtrl.phone}}</li>
+    <li>Email: {{userInfoCtrl.email}}</li>
+    <li>Short Name of Favorite Dish: {{userInfoCtrl.favDish.short_name}}</li>
+    <li>Description of Favorite Dish: {{userInfoCtrl.favDish.description}}</li>
+  </ul>
+  <h2 ng-if="userInfoCtrl.userUndefined">Not Signed Up Yet. Sign up Now!</h2>
+</div>
