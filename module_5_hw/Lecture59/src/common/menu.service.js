@@ -8,7 +8,6 @@ angular.module('common')
 MenuService.$inject = ['$http', 'ApiPath'];
 function MenuService($http, ApiPath) {
   var service = this;
-  var user = null;
 
   service.getCategories = function () {
     return $http.get(ApiPath + '/categories.json').then(function (response) {
@@ -29,39 +28,31 @@ function MenuService($http, ApiPath) {
   };
 
   service.getMenuItem = function(item) {
-    var config = {};
     return $http.get(ApiPath + '/menu_items/' + item + '.json')
             .then(function(response) {
               return response.data;
             });
   }
 
-  service.getSelectedItem = function() {
-    return selectedItem;
-  }
-
-  service.setUserInfo = function(firstName, lastName, email, phone, favDish, callback) {
-    try {
-      user = {};
-      user.firstName = firstName;
-      user.lastName = lastName;
-      user.email = email;
-      user.phone = phone;
-      user.favDish = favDish;
-      callback();
-    } catch(error) {
-      throw new Error('Something is wrong with the saving process...')
-    }
-
-  }
-
-  service.getUserInfo = function() {
-    if (user) {
-      return user;
-    } else {
-      throw new Error('User was not defined!');
-    }
-  }
+  // service.setUserInfo = function(user,callback) {
+  //   try {
+  //     service.user = user;
+  //     callback();
+  //   } catch(error) {
+  //     throw new Error('Something is wrong with the saving process...')
+  //   }
+  //
+  // }
+  //
+  // service.getUserInfo = function() {
+  //   var deferred = $q.defer();
+  //   if (service.user) {
+  //     deferred.resolve(service.user);
+  //   } else {
+  //     deferred.reject('user was not defined');
+  //   }
+  //   return deferred.promise;
+  // }
 
 }
 

@@ -7,5 +7,5 @@
     <li>Short Name of Favorite Dish: {{userInfoCtrl.favDish.short_name}}</li>
     <li>Description of Favorite Dish: {{userInfoCtrl.favDish.description}}</li>
   </ul>
-  <h2 ng-if="userInfoCtrl.userUndefined">Not Signed Up Yet. Sign up Now!</h2>
+  <h2 ng-if="userInfoCtrl.userUndefined">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h2>
 </div>

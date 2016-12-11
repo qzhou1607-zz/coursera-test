@@ -4,34 +4,29 @@
   angular.module('public')
   .controller('RegistrationController',RegistrationController);
 
-  RegistrationController.$inject = ['MenuService'];
-  function RegistrationController(MenuService) {
+  RegistrationController.$inject = ['MenuService','UserService'];
+  function RegistrationController(MenuService,UserService) {
     var reg = this;
     reg.submit= function() {
       //verfiy item
-      reg.notExist = false;
       MenuService.getMenuItem(reg.user.favDish)
-      .then(function(item) {
-        reg.user.selecteditem = item;
+      .then(function success(item) {
+        reg.notExist = false;
         //save item to service
-        MenuService.setUserInfo(
-          reg.user.firstname,
-          reg.user.lastname,
-          reg.user.email,
-          reg.user.phone,
-          reg.user.selecteditem,
-          function() {
+        var user = {
+          firstName:  reg.user.firstname,
+          lastName: reg.user.lastname,
+          email: reg.user.email,
+          phone: reg.user.phone,
+          favDish: item
+        }
+        UserService.setUserInfo(user, function() {
             reg.complete = true;
           }
         );
-      })
-      .catch(function(err) {
-        console.log(err);
-        if (err.status === 500) {
-          //item not exist
-          reg.notExist = true;
-        }
-        reg.complete = false;
+      },
+      function error(err) { // if error in finding the item
+        reg.notExist = true;
       })
     };
   }
