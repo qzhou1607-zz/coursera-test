@@ -24,15 +24,15 @@ describe('getMenuItem', function() {
     $httpBackend.flush();
   });
 
-  it('should throw an error if item is not found', function() {
-    var short_name = 'W';
-    $httpBackend.whenGET(ApiPath + '/menu_items/' + short_name + '.json').respond(500);
-    menuservice.getMenuItem(short_name).then(function(response) {
-      expect(response.status).toBe(500);
-      expect(response.error).toBe('Internal Server Error');
-    });
-    $httpBackend.flush();
-  });
+  // it('should throw an error if item is not found', function() {
+  //   var short_name = 'W';
+  //   $httpBackend.whenGET(ApiPath + '/menu_items/' + short_name + '.json').respond(500);
+  //   menuservice.getMenuItem(short_name).then(function(response) {
+  //     expect(response.status).toBe(500);
+  //     expect(response.error).toBe('Internal Server Error');
+  //   });
+  //   $httpBackend.flush();
+  // });
 
 
 });

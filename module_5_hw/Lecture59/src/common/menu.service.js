@@ -33,27 +33,6 @@ function MenuService($http, ApiPath) {
               return response.data;
             });
   }
-
-  // service.setUserInfo = function(user,callback) {
-  //   try {
-  //     service.user = user;
-  //     callback();
-  //   } catch(error) {
-  //     throw new Error('Something is wrong with the saving process...')
-  //   }
-  //
-  // }
-  //
-  // service.getUserInfo = function() {
-  //   var deferred = $q.defer();
-  //   if (service.user) {
-  //     deferred.resolve(service.user);
-  //   } else {
-  //     deferred.reject('user was not defined');
-  //   }
-  //   return deferred.promise;
-  // }
-
 }
 
 
