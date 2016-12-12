@@ -18,10 +18,21 @@ describe('getMenuItem', function() {
   it('should return item details if item is found', function() {
     var short_name = 'A1';
     $httpBackend.whenGET(ApiPath + '/menu_items/' + short_name + '.json').respond(sampleItem);
-    menuservice.getMenuItem('A1').then(function(response) {
+    menuservice.getMenuItem(short_name).then(function(response) {
       expect(response).toEqual(sampleItem);
     });
     $httpBackend.flush();
   });
+
+  it('should throw an error if item is not found', function() {
+    var short_name = 'W';
+    $httpBackend.whenGET(ApiPath + '/menu_items/' + short_name + '.json').respond(500);
+    menuservice.getMenuItem(short_name).then(function(response) {
+      expect(response.status).toBe(500);
+      expect(response.error).toBe('Internal Server Error');
+    });
+    $httpBackend.flush();
+  });
+
 
 });
