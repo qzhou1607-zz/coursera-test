@@ -69,12 +69,14 @@
         </div>
       </div>
       <br>
-      <div class="col-sm-offset-3 col-sm-3">
-        <button type="button" name="button" class="btn btn-default"
-        ng-disabled="signUpForm.$invalid"
-        ng-click="regCtrl.submit()">
-          <b>Submit</b>
-        </button>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-3">
+          <button type="button" name="button" class="btn btn-default"
+          ng-disabled="signUpForm.$invalid"
+          ng-click="regCtrl.submit()">
+            <b>Submit</b>
+          </button>
+        </div>
       </div>
     </form>
     <div class="col-sm-6 col-sm-offset-3" ng-if="regCtrl.complete">
