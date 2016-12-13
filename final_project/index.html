@@ -13,6 +13,9 @@
     <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
   </head>
 <body ng-app="restaurant">
+
+  <loader class="loading-indicator"></loader>
+
   <header>
     <nav id="header-nav" class="navbar navbar-default">
       <div class="container">
@@ -44,7 +47,7 @@
                 <span class="glyphicon glyphicon-home"></span> Home</a>
             </li>
             <li id="navMenuButton">
-              <a href="#" onclick="$dc.loadMenuCategories();">
+              <a ui-sref="public.menu">
                 <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
             </li>
             <li>
@@ -121,9 +124,13 @@
     <!-- Components -->
     <script src="src/public/category/category.component.js"></script>
     <script src="src/public/item/item.component.js"></script>
+    <script src="src/common/loader/loader.component.js"></script>
 
     <!-- Controller -->
-    <script src="src/public/menu/menu.controller.js"></script>
+    <script src="src/public/categories/menu.controller.js"></script>
     <script src="src/public/items/items.controller.js"></script>
+
+    <!-- Interceptor -->
+    <script src="src/common/loader/loader.interceptor.js"></script>
 </body>
 </html>
