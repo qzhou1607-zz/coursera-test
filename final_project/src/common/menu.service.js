@@ -13,5 +13,16 @@
         }
       );
     }
+
+    service.getItems = function(category) {
+      var config = {};
+      config.params = {'category':category}
+      return $http.get(ApiPath + '/menu_items.json', config)
+                  .then(function(response) {
+                    console.log(response.data);
+                    return response.data;
+                  })
+    }
   }
+
 })();

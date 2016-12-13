@@ -27,5 +27,16 @@
             }]
           }
         })
+
+        .state('public.items', {
+          url:'/items/{short_name}',
+          templateUrl:'src/public/items/items.template.html',
+          controller:'ItemsController as itemsCtrl',
+          resolve:{
+            items: ['MenuService','$stateParams', function(MenuService, $stateParams) {
+              return MenuService.getItems($stateParams.short_name);
+            }]
+          }
+        })
     }
 })();
